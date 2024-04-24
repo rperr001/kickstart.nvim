@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -227,15 +227,17 @@ vim.opt.rtp:prepend(lazypath)
 -- brew install pyright
 -- brew install black
 -- brew install isort
+
 require('lazy').setup({
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   -- NOTE: My Plugins
   -- { "nathanalderson/yang.vim", ft = "yang" },
   -- { 'akinsho/toggleterm.nvim', version = '*', config = true },
+  { 'fatih/vim-go', ft = 'go' },
   { 'elzr/vim-json', ft = 'json' },
   { 'glench/vim-jinja2-syntax', ft = 'jinja2' },
+  { 'saltstack/salt-vim', ft = 'sls' },
   { 'carbon-language/vim-carbon-lang', ft = 'carbon' },
-  { 'fatih/vim-go', ft = 'go' },
   -- NOTE: My Plugins End
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
@@ -659,7 +661,7 @@ require('lazy').setup({
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
         python = { 'isort', 'black' },
-        --
+        go = { 'goimports', 'gofumpt' }, --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
         -- javascript = { { "prettierd", "prettier" } },
@@ -835,7 +837,7 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
-      ensure_installed = { 'bash', 'c', 'go', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'cmake', 'cpp', 'go', 'html', 'lua', 'luadoc', 'make', 'markdown', 'toml', 'vim', 'vimdoc', 'yang' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
